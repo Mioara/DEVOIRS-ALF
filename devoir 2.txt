@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p> Verify if the expressions respect the Hug Language and evaluate the operations. <br>
+ALF1=2 >:D< <br>
+ALF2=ALF1+3 >:D< <br>
+ </p>
+
+<button onclick="myFunction()">Execute</button>
+
+<p id="reponse"> </p>
+
+<script>
+function myFunction() {
+    var line1 = "ALF1=2 >:D<";
+    var line2= "ALF2=ALF1+3 >:D<";
+    
+    var parts1=line1.split('>');
+    var parts2=line2.split('>');
+
+    var n = parts1[0].split('=')[0]+' has the value '+eval(parts1[0])+"<br>"; 
+    var p = parts2[0].split('=')[0]+' has the value '+eval(parts2[0])+"<br>";
+
+    var successMessage=":) c'est bon! <br>"+n+p;
+    var errorMessage=":( c'est pas bon!!! Il ne peut pas compris le limbage!";
+
+
+ var a=/(([a-zA-Z]){3}\d[ ]*=[ ]*)((\d+)|(((([a-zA-Z]){3}\d[ ]*)|(\d+[]*))((\+)|(\-)|(\*)|(\|))[ ]*\d+))([ ]*>:\D<)/g.test(line2);
+
+ var b=/(([a-zA-Z]){3}\d[ ]*=[ ]*)((\d+)|(((([a-zA-Z]){3}\d[ ]*)|(\d+[]*))((\+)|(\-)|(\*)|(\|))[ ]*\d+))([ ]*>:\D<)/g.test(line1);
+
+if (a&&b) 
+ {document.getElementById("reponse").innerHTML=successMessage;   }
+else
+{ document.getElementById("reponse").innerHTML=errorMessage;
+}                      
+}
+</script>
+
+</body>
+</html>
